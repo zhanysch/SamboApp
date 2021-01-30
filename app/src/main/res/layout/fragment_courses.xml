@@ -44,7 +44,6 @@
                 android:layout_marginTop="23dp"
                 android:src="@drawable/rectangle_horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
-
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,7 +57,6 @@
                 android:layout_marginEnd="58dp"
                 android:layout_marginBottom="14dp"
                 android:clickable="true"
-                android:drawableEnd="@drawable/ic_arrow"
                 android:focusable="true"
                 android:fontFamily="@font/gilroy_semibold"
                 android:text="Тема: Основы боевых искусств"

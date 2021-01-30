@@ -20,7 +20,7 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 class CoursesFragment : BaseFragment(), ItemListener {
     override fun resID() = R.layout.fragment_courses
     private val vm by sharedViewModel<CoursesViewModel>()
-    private val adapter by lazy {
+    private val adapterCourses by lazy {
         CoursesAdapter() { item: RowsItem, image: ShapeableImageView ->
             navigateToDetails(item, image)
         }
@@ -37,19 +37,19 @@ class CoursesFragment : BaseFragment(), ItemListener {
             vm.choosedCategory(it)  // подгрузка картины при клике на категорию
         })
 
-        recycler_courses.adapter = adapter
+        //recycler_courses.adapter = adapter
         vm.data.observe(viewLifecycleOwner, Observer {
-            adapter.submitList(it)
+            adapterCourses.submitList(it)
         })
 
-       /* recycler_courses.apply {
-            adapter = adapter
+        recycler_courses.apply {
+            adapter = adapterCourses
             postponeEnterTransition()
             viewTreeObserver.addOnPreDrawListener {
                 startPostponedEnterTransition()
                 true
             }
-        }*/
+        }
 
 
         textChange.setOnClickListener {

@@ -2,6 +2,7 @@ package com.example.sambo.utils.ext
 
 import android.content.Context
 import android.util.TypedValue
+import android.view.View
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.shape.CornerFamily
 
@@ -25,3 +26,5 @@ fun ShapeableImageView.setCornerRadius(
         .setBottomRightCorner(CornerFamily.ROUNDED, bottomRight)
         .build()
 }
+
+fun View.toTransitionGroup() = this to transitionName

@@ -3,12 +3,10 @@ package com.example.sambo.ui.bottomnavigation.courses
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.sambo.data.modelcourses.MainCourseModel
-
 import androidx.lifecycle.viewModelScope
 import com.example.sambo.data.commonpagination.BaseDataSource
 import com.example.sambo.data.commonpagination.BasePagedViewModel
 import com.example.sambo.data.model.cards.RowsItem
-
 import com.example.sambo.data.modelBottomSheet.BottomSheetRows
 import com.example.sambo.data.repository.SamboRepository
 import kotlinx.coroutines.CoroutineScope
@@ -35,12 +33,11 @@ class CoursesViewModel(private val service: SamboRepository) :
         viewModelScope.launch {
             val result = service.loadCategory(limit = 20, page = 1)
             if (result.isSuccessful) dataCategory.postValue(result.body()?.rows)
-            Log.d("fsdfsfds", "Fsfsdfsdf")
         }
     }
 
     fun choosedCategory(item: BottomSheetRows) {   // функц выбирает категорию //  dataSourceFactoryLiveData из класса  BaseDataSource
-        categoryId = item.id                       //invalidate ????
+        categoryId = item.id
         sourceFactory.dataSourceFactoryLiveData.value?.invalidate()
     }
 
@@ -51,7 +48,6 @@ class CoursesViewModel(private val service: SamboRepository) :
         override fun getListByPageNumber(limit: Int, page: Int): MainCourseModel<RowsItem>? {
             return runBlocking {
                 val data = service.loadData(limit = limit, page = page, categoryId = categoryId)
-
                 return@runBlocking data
             }
         }

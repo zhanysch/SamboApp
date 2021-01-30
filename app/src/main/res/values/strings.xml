@@ -20,4 +20,5 @@
     <string name="competition_desc">Из-за ковида соревнования на паузе:(\nСкоро они вернутся, а пока\nтренируйся вместе с нами онлайн!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="ok">Окей</string>
+    <string name="image_transition">image%1d</string>
 </resources>
